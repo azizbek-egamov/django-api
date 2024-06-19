@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Sign Up
+{% endblock title %}
+
+{% block main %}
+
+<main style="height: 170vh;" class="login-bg">
+
+    <div class="register-form-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-8">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="register-form text-center">
+
+                            <div class="register-heading">
+                                <span>Ro'yxatdan o'tish</span>
+                                <p style="color: {{color}}">{{text}}</p>
+                            </div>
+
+                            <div class="input-box">
+                                <div class="single-input-fields">
+                                    <label for="a1">Ism</label>
+                                    <input id="a1" type="text" name="fname" value="{{fn}}" placeholder="Ismingizni kiriting">
+                                </div>
+                                <div class="single-input-fields">
+                                    <label for="a5">Familiya</label>
+                                    <input id="a5" type="text" name="lname" value="{{ln}}" placeholder="Familiyangizni kiriting">
+                                </div>
+                                <div class="single-input-fields">
+                                    <label for="a2">Email manzil</label>
+                                    <input id="a2" type="email" name="email" value="{{em}}" placeholder="Email manzilni kiriting">
+                                </div>
+                                <div class="single-input-fields">
+                                    <label for="a2">Foydalanuvchi nomi</label>
+                                    <input id="a2" type="text" value="{{us}}" name="username"
+                                        placeholder="Foydalanuvchi nomini kiriting">
+                                </div>
+                                <div class="single-input-fields">
+                                    <label for="a3">Parol</label>
+                                    <input id="a3" type="password" value="{{p1}}" name="pass1" placeholder="Parolni kiriting">
+                                </div>
+                                <div class="single-input-fields">
+                                    <label for="a4">Parol</label>
+                                    <input id="a4" type="password" value="{{p2}}" name="pass2" placeholder="Parolni qayta kiriting">
+                                </div>
+                            </div>
+
+                            <div class="register-footer">
+                                <p>Hisobingiz bormi ? <a href="/login">Kirish</a>.</p>
+                                <input class="submit-btn3" type="submit" value="Ro'yxatdan o'tish">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock  %}

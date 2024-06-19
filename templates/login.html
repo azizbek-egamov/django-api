@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Login
+{% endblock title %}
+
+{% block main %}
+
+
+
+<main class="login-bg">
+
+    <div class="login-form-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8">
+                    <div class="login-form">
+
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="login-heading">
+                                <span>Hisobga kirish</span>
+                                <p style="{{color}}">{{text}}</p>
+                            </div>
+    
+                            <div class="input-box">
+                                <div class="single-input-fields">
+                                    <label for="f1">Faydalanuvchi nomi yoki email manzil</label>
+                                    <input id="f1" name="user" value="{{v1}}" type="text" placeholder="Foydalanuvchi nomi / Email manzil">
+                                </div>
+                                <div class="single-input-fields">
+                                    <label>Parol</label>
+                                    <input type="password" name="pass" value="{{v2}}" placeholder="Parolni kiriting">
+                                </div>
+                            </div>
+
+    
+                            <div class="login-footer">
+                                <p>Hisobingiz yo'qmi? <a href="/signup">Ro'yxatdan o'tish</a></p>
+                                <input class="submit-btn3" type="submit" value="Kirish">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock  %}
+

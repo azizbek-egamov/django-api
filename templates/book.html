@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Kitoblar{% endblock title %}
+{% block main %}
+<main>
+
+
+    <div class="product_image_area section-padding40">
+        <div class="container">
+            {% for i in books %}
+            
+            <div class="row s_product_inner">
+                <div class="col-lg-5">
+                    <div class="product_slider_img">
+                        <div id="vertical">
+                            <div data-thumb="{{i.rasm.url}}">
+                                <img src="{{i.rasm.url}}" class="w-100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="s_product_text">
+                        <h3>{{i.name}}</h3>
+                        <ul class="list">
+                            <li>
+                                <span>Kategoriya:</span> <a class="active" href="/category/{{categ}}">{{categ}}</a>
+                            </li>
+                            <li>
+                                <span>Avtor: <a class="active" hreflang>{{i.author}}</a></span>
+                            </li>
+                            <li>
+                                <span>Ko'rishlar: <a class="active" hreflang>{{i.view}}</a> ta</span>
+                            </li>
+                            <li>
+                                <span>Saytga yuklangan: <a class="active" hreflang>{{i.created}}</a></span>
+                            </li>
+                        </ul>
+                        <p>
+                            {{haqida}}
+                        </p>
+                        {% if request.user.is_authenticated %}
+                        <div class="card_area">
+                            <div class="add_to_cart">
+                                <a href="{{i.file.url}}" download class="btn">Yuklab olish</a>
+                                {% comment %} <a href="#" class="like_us"> <i class="ti-heart"></i> </a> {% endcomment %}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="card_area">
+                            <p>Kitob faylini yuklab olish uchun hisobingizga kiring.</p>
+                            <div class="add_to_cart">
+                                <a href="/login" class="btn">Hisobga kirish</a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+{% endblock main %}
